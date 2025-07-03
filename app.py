@@ -69,7 +69,6 @@ fig2 = plt.figure(figsize=(10,8))
 plt.plot(ma_50_days, 'b')
 plt.plot(ma_100_days, 'r')
 plt.plot(data.Close, 'g')
-
 plt.legend()
 plt.show()
 st.pyplot(fig2)
@@ -101,11 +100,11 @@ X,y = np.array(X), np.array(y)
 
 
 #predict
-
 predict = model.predict(X)
 
 
 scale = 1/scaler.scale_
+
 predict = predict * scale #y_hat
 y = y * scale #y
 
@@ -114,7 +113,6 @@ st.subheader('Original Price vs Predicted Price')
 fig4 = plt.figure(figsize=(10,8))
 plt.plot(predict, 'r', label = "PRED Price")
 plt.plot(y, 'g', label = "OG Price")
-
 plt.legend()
 plt.show()
 st.pyplot(fig4)
