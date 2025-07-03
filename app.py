@@ -7,7 +7,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 
-model = load_model(models\stock_pred.keras)
+model = load_model("models\stock_pred.keras")
 
 
 st.header("Nasdaq Stock Price Predictor 2025")
