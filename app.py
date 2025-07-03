@@ -1,15 +1,21 @@
 import numpy as np
 import pandas as pd
 import yfinance as yf
+import tensorflow
 from tensorflow.keras.models import load_model
 import streamlit as st
 import matplotlib.pyplot as plt
 
 
-model = load_model(r"C:\Users\haris\Downloads\stock_pred.keras")
+model = load_model(r"D:\Projects Github\nasdaq-stock-prediction-LSTM\stock_pred.keras")
 
 
 st.header("Nasdaq Stock Price Predictor 2025")
+
+st.markdown(
+    "This app uses historical stock data and an LSTM model to predict future stock prices. "
+    "It pulls data from Yahoo Finance and visualizes results interactively."
+)
 
 stock = st.text_input("Enter the Stock Symbol Below(Eg. NVDA for Nvidia): ", "NVDA")
 start = '2014-01-01'
