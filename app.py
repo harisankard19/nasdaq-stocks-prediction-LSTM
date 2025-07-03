@@ -7,24 +7,35 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 
-model = load_model("models\stock_pred.keras")
+model = load_model(r"D:\Projects Github\nasdaq-stock-prediction-LSTM\models\stock_pred.keras")
 
 
 st.header("Nasdaq Stock Price Predictor 2025")
 
 st.markdown(
-    "This app uses historical stock data and an LSTM model to predict future stock prices. "
-    "It pulls data from Yahoo Finance and visualizes results interactively."
+    "This app uses historical stock data and an LSTM model to predict future stock prices of all entities listed on US's NASDAQ. "
+    "It pulls data from Yahoo Finance (yfinance) and visualizes results. "
+    "I have included data from Jan 2014 till June 2025, almost 11.5 years. "
+    "While this model does try to predict the general trend, it is impossible to know, with 100% surity, how the the market will perform."
+
 )
 
-stock = st.text_input("Enter the Stock Symbol Below(Eg. NVDA for Nvidia): ", "NVDA")
+
+st.markdown(
+    """
+    **Some Terms:**  
+    MA50, 100 and 200: The 50-day moving average (also called "MA50") is a reliable technical indicator used by several investors to analyze price trends.
+    """
+)
+
+stock = st.text_input("Enter the Stock Symbol Below (Eg. NVDA for Nvidia): ", "NVDA")
 start = '2014-01-01'
-end = '2025-05-01'
+end = '2025-06-30'
 
 data = yf.download(stock, start, end)
 
 st.subheader('Stock Data')
-st.write(data)
+st.write(data) #displays table
 
 
 
